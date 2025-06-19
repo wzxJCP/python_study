@@ -1,0 +1,15 @@
+1.创建 scrapy 项目:
+# CrawlSpider方式创建：
+
+# 跳转到项目目录
+ cd C:\Users\Asus\PycharmProjects\pythonProject
+    Terminal输入 scrapy startproject （项目名称）  # scrapy_readbook_06 创建(scrapy_readbook_06)项目
+
+# 跳转到项目目录spiders中
+  cd scrapy_readbook_06\scrapy_readbook_06\spiders
+
+# scrapy genspider -t crawl read https://www.dushu.com/book/1188.html
+
+# 运行测试
+# scrapy crawl read
+

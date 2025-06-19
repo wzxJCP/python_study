@@ -1,0 +1,19 @@
+https://invest.yn.gov.cn/zwarticlelist.aspx?chid=1
+
+https://invest.yn.gov.cn/zwarticlelist.aspx?chid=1&page=1
+https://invest.yn.gov.cn/zwarticlelist.aspx?chid=1&page=42
+https://invest.yn.gov.cn/zwarticlelist.aspx?chid=1&page=85
+
+# 1.创建 scrapy 项目:
+# 跳转到项目目录
+# cd C:\Users\Asus\PycharmProjects\pythonProject
+#      Terminal输入 scrapy startproject scrapy_invest_09 （项目名称）  # scrapy_58tc_02 创建(scrapy_58tc_02)项目
+# 跳转到项目目录spiders中
+# cd scrapy_invest_09\scrapy_invest_09\spiders
+             教学使用： https://bj.58.com/sou/?key=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91&classpolicy=jianzhi_B  # 下同
+# scrapy genspider tc https://bj.58.com/sou/?key=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91&classpolicy=classify_D  # 根目录tc.py
+# 运行测试
+# scrapy crawl tc
+
+CrawlSpider方式创建：
+scrapy genspider -t crawl invest https://invest.yn.gov.cn/zwarticlelist.aspx?chid=1&page=1

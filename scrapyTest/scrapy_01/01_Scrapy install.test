@@ -1,0 +1,50 @@
+# (1) pip install scrapy
+# (2) pip install twisted
+# (3) 报错2 python -m pip install --upgrade pip
+# (4) 版本  scrapy version -v
+# (5) 最后未解决 需要下载安装Anaconda 教学https://blog.csdn.net/wq_ocean_/article/details/103889237?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164661244416780265433045%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164661244416780265433045&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-103889237.pc_search_result_control_group&utm_term=Anaconda&spm=1018.2226.3001.4187
+
+#  A.scrapy项目的创建以及运行
+#  1.创建 scrapy 项目:
+#      终端输入 scrapy startproject 项目名称
+#  2.项目组成:
+#   spiders
+#   _init__.py
+#   自定义的爬虫文件.py  ---》由我们自己创建，是实现爬虫核心功能的文件
+#   _init__-py
+#   items.py          ---》定义数据结构的地方，是一个继承自scrapy. Item的类
+#   middlewares.py    ---》中间件代理
+#   pipelines.py      ---》管道文件,里面只有一个类,用于处理下载数据的后续处理 默认是300优先级,值越小优先级越高(1-1000)
+#   settings.py       ---》配置文件比如:是否遵守robots协议，User-Agent定义等
+
+#  cd /D D:\Qy\2022\PycharmProjects\pythonProject
+#  cd /D C:\Users\Asus\PycharmProjects\pythonProject
+#  https://blog.csdn.net/u012424313/article/details/91403513?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ELandingCtr%7ERate-1.queryctrv4&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ELandingCtr%7ERate-1.queryctrv4&utm_relevant_index=1
+
+#  步骤 一、cmd
+#  pip install scrapy -i https://pypi.douban.com/simple //下载安装 已安装就免安装 直接创建项目
+#  cd /D C:\Users\Asus\AppData\Local\Programs\Python\Python39\Scripts  //先cmd 再转盘到Scripts
+#  scrapy startproject scrapy_baidu    //创建项目名
+#  完成后再去 （C:\Users\Asus\AppData\Local\Programs\Python\Python39\Scripts）里找
+
+#  cmd 创建 非内部命令错误  就使用Terminal创建
+#  cd /D C:\Users\Asus\AppData\Local\Programs\Python\Python39\Scripts\scrapy_baidu\scrapy_baidu\spiders
+#  scrapy genspider baidu http://www.baidu.com
+
+# Terminal 创建命令
+# cd C:\Users\Asus\PycharmProjects\pythonProject\scrapy_baidu\scrapy_baidu\spiders
+# scrapy genspider baidu http://www.baidu.com
+
+# 1.创建 scrapy 项目:
+# 跳转到项目目录
+# cd C:\Users\Asus\PycharmProjects\pythonProject
+#      Terminal输入 scrapy startproject （项目名称）  # scrapy_58tc_02 创建(scrapy_58tc_02)项目
+# 跳转到项目目录spiders中
+# cd scrapy_58tc_02\scrapy_58tc_02\spiders
+             教学使用： https://bj.58.com/sou/?key=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91&classpolicy=jianzhi_B  # 下同
+# scrapy genspider tc https://bj.58.com/sou/?key=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91&classpolicy=classify_D  # 根目录tc.py
+# 运行测试
+# scrapy crawl tc
+
+CrawlSpider方式创建：
+scrapy genspider -t crawl read https://www.dushu.com/book/1188.html

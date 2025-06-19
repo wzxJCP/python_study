@@ -1,0 +1,64 @@
+*******************************第一次测试 #爬取到100页 ***************************************************************
+
+*******************************第二次测试 #爬取到100页 ***************************************************************
+ 爬取 name、src、和book.json文件
+ 1560行 /3 520条 13页 40条/页
+
+************************************ 导入爬取的数据到 数据库 中 ********************************
+*** settings ***
+# 参数中一个端口号 一个是字符集 都要注意
+DB_HOST = '127.0.0.1'
+# 端口号是一个整数
+DB_PORT = 3306
+DB_USER = 'root'
+DB_PASSWROD = '123456'
+DB_NAME = 'spider01'
+# utf-8的杠不允许写
+DB_CHARSET = 'utf8'
+
+*** pipelines ***
+# 加载settings文件
+from scrapy.utils.project import get_project_settings
+import pymysql
+
+class MysqlPipeline:
+    def open_spider(self, spider):
+        settings = get_project_settings()
+        self.host = settings['DB_HOST']
+        self.port = settings['DB_PORT']
+        self.user = settings['DB_USER']
+        self.password = settings['DB_PASSWROD']
+        self.name = settings['DB_NAME']
+        self.charset = settings['DB_CHARSET']
+
+        self.connect()
+
+    def connect(self):
+        self.conn = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.name,
+            charset=self.charset
+        )
+
+        self.cursor = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        sql = 'insert into read(name,src) values("{}","{}")'.format(item['name'], item['src'])
+        # 执行sql语句
+        self.cursor.execute(sql)
+        # 提交
+        self.conn.commit()
+
+        return item
+
+    def close_spider(self, spider):
+        self.cursor.close()
+        self.conn.close()
+
+*** settings ***
+# 配置自己的管道
+# MysqlPipeline
+   'scrapy_readbook_06.pipelines.MysqlPipeline': 301

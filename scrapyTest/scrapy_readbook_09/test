@@ -1,0 +1,4 @@
+****************** 图片 书名 作者******************
+图片：//div[@class="bookslist"]//a//img
+书名：//div[@class="bookslist"]//a//img/@alt
+作者：//div[@class="bookslist"]//p[1]

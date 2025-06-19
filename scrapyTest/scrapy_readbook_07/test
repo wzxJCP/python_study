@@ -1,0 +1,53 @@
+                  ***************(CrawlSpider案例)****************
+1.创建 scrapy 项目:
+  跳转到项目目录：
+  cd C:\Users\Asus\PycharmProjects\pythonProject
+       Terminal输入 scrapy startproject （项目名称）  # scrapy_readbook_07 创建(scrapy_readbook_07)项目
+  跳转到项目目录spiders中：
+  cd scrapy_readbook_07/scrapy_readbook_07/spiders
+  CrawlSpider方式创建：
+  scrapy genspider -t crawl read https://www.dushu.com/book/1107.html
+  运行测试：
+  scrapy crawl read
+                         ****************(A 测试read)****************
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+
+from scrapy_readbook_07.items import ScrapyReadbook07Item
+
+
+class ReadSpider(CrawlSpider):
+    name = 'read'
+    allowed_domains = ['www.dushu.com']  # 允许访问的域名
+    start_urls = ['https://www.dushu.com/book/1107.html']
+
+    rules = (
+        Rule(LinkExtractor(allow=r'/book/1107_\d+\.html'),
+                           callback='parse_item',
+                           follow=True),
+    )
+
+    def parse_item(self, response):
+        # item = {}
+        # print("     读     书     网     ！")
+        #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
+        #item['name'] = response.xpath('//div[@id="name"]').get()
+        #item['description'] = response.xpath('//div[@id="description"]').get()
+        # return item
+
+        img_list = response.xpath('//div[@class="bookslist"]//img')
+
+        for img in img_list:
+            name = img.xpath('./@data-original').extract_first()
+            src = img.xpath('./@alt').extract_first()
+
+            book = ScrapyReadbook07Item(name=name, src=src)
+            yield book
+                      ****************(B items)****************
+name = scrapy.Field()
+src = scrapy.Field()
+*******************************第一次测试 #爬取到100页 ***************************************************************
+
+*******************************第二次测试 #爬取到100页 ***************************************************************
+ 爬取 name、src、和book.json文件
+ 1560行 /3 520条 13页 40条/页

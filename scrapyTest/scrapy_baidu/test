@@ -1,0 +1,18 @@
+1.创建爬虫的项目 scrapy startproject 项目的名字
+              注意：项目的名字不允许使用数字开头，也不能包含中文
+2.创建爬虫文件
+      在spiders文件夹中创建爬虫文件
+      cd 项目的名字\项目的名字\spiders
+      C:\Users\Asus\PycharmProjects\pythonProject\scrapy_baidu\scrapy_baidu\spiders
+
+       创建爬虫文件
+       scrapy genspider 爬虫文件的名字 要爬取的网页
+       eg：scrpay genspider baidu http://www.baidu.com
+       一般情况下不需要添加http协议 因为start_urls的值是根据allowed_domains修改的
+       所以添加了http的话 那么start_urls就需要手动去修改
+3.运行爬虫代码
+     scrapy crawl 爬虫的名字
+     eg:
+        scrapy crawl baidu
+     # 注释 之后就不遵守robots协议 它是一个君子协议 一般情况下我们不需要遵守
+     # ROBOTSTXT_OBEY = True

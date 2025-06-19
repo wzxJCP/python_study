@@ -1,0 +1,18 @@
+C:\Users\Asus\PycharmProjects\pythonProject> scrapy shell www.baidu.com
+
+进入到scrapy shell的终端 直接在window的终端中输入scrapy shell 域名
+如果想看到一些高亮 或者 自动补全 那么可以安装ipython pip install ipython
+
+scrapy shell www.baidu.com
+In[1]:response.body
+      response.text
+      response.url
+      response.status
+      response.xpath('//input[@id="su"]/@value')
+      a = response.xpath('//input[@id="su"]/@value')
+      a
+      a.extract_first()
+
+      a = response.css('#su::attr("value")')
+      a.extract_first()
+      X 不建议使用css代码
