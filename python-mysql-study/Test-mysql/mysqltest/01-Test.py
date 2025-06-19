@@ -1,14 +1,16 @@
 import pymysql
 
-
 def main():
-    db = pymysql.connect(host='localhost',
-                         port=3306,
-                         user='root',
-                         password='101101',
-                         db='pytest',
-                         charset='utf8')
-    print("数据库连接成功！")
+    try:
+        db = pymysql.connect(
+            host='localhost',
+            port=3306,
+            user='wan',
+            password='101101'
+        )
+        print("数据库连接成功！")
+    except Exception as e:
+        print("连接失败，错误信息：", e)
 
 if __name__ == '__main__':
     main()

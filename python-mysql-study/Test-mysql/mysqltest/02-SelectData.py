@@ -5,7 +5,7 @@ def main():
 	# 连接数据库并打开pytest数据库
     db = pymysql.connect(host='127.0.0.1', #主机ip
 					 port=3306, #数据库端口，默认3306
-					 user='root', #数据库用户
+					 user='wan', #数据库用户
 					 password='101101', #用户对应的密码
 					 db='ynwzw') #数据库名称
 

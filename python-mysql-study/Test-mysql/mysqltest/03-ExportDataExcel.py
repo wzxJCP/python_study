@@ -6,7 +6,7 @@ from numpy import save
 def mysql():
         db = pymysql.connect(host='localhost',  # 127.0.0.1
                              port=3306,
-                             user='root',
+                             user='wan',
                              password='101101',
                              db='ynwzw',
                              charset='utf8')
