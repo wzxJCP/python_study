@@ -108,7 +108,7 @@ celerybeat.pid
 .env
 .venv
 env/
-zSeeAMovieTest/venv/
+data_scrapy/zSeeAMovieTest/venv/
 ENV/
 env.bak/
 venv.bak/
