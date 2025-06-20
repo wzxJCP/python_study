@@ -1,6 +1,6 @@
 def main():
-    input_file = "0618_1 - 未去重.txt"
-    output_file = "0618_1.txt"
+    input_file = "0620_1合并.txt"
+    output_file = "0620_1合并1.txt"
 
     with open(input_file,"r", encoding="utf-8") as f:
         urls = [line.strip() for line in f if line.strip()]
